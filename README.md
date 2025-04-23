@@ -34,6 +34,7 @@ Um sistema web simples e funcional para cadastro de usuários, visualização de
 - 📁 `css/` – Estilos personalizados do site
 - 📁 `livros/` – Página dinâmica para cada livro
 - 📁 `includes/` – Itens reaproveitados como header e footer (opcional)
+- 📁 `PHPMailer-master/src/` – Biblioteca para enviar e-mails com autenticação SMTP (como do Gmail, Hotmail, etc.)
 - 📄 `index.php` – Página inicial com exibição dos livros
 - 📄 `cadastro.php` – Tela de registro de novos usuários
 - 📄 `login.php` – Tela de login
