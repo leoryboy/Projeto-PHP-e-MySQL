@@ -33,6 +33,10 @@
         <link rel="shortcut icon" href="assets/favicon1.ico" type="image/x-icon">
     </head>
     <body>
+        <!-- Fab -->
+        <div class="fixed-bottom text-end p-2">
+            <a class="social-icon icon-fab" href="https://api.whatsapp.com/send?phone=5511952836058" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        </div>
          <!-- Notificação-->
          <?php if ($notificationMessage): ?>
             <div id="notification" class="notification show">

@@ -1,0 +1,114 @@
+Senha app: xofvrcgzopnrdthb
+
+----------------------------------------------------------------------------------------
+
+TABELA DE USUARIOS
+
+CREATE TABLE usuarios (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    email VARCHAR(60) NOT NULL UNIQUE,
+    senha VARCHAR(255) NOT NULL
+);
+
+
+
+----------------------------------------------------------------------------------------
+
+
+TABELA DE LIVROS
+
+CREATE TABLE livros (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    titulo VARCHAR(100) NOT NULL,
+    autor VARCHAR(100),
+    preco DECIMAL(5,2),
+    imagem VARCHAR(255),
+    descricao TEXT
+);
+obs: DECIMAL(5,2) = total de 5 dígitos, sendo 3 antes da vírgula e 2 depois.
+Valores válidos: de 0.00 até 999.99.
+
+
+
+----------------------------------------------------------------------------------------
+
+
+TABELA PEDIDOS /* pedidos → onde ficam as infos do pedido. */
+
+CREATE TABLE pedidos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    usuario_id INT NOT NULL,
+    data DATETIME DEFAULT CURRENT_TIMESTAMP,
+    total DECIMAL(10,2) NOT NULL,
+    status VARCHAR(20) DEFAULT 'aberto',
+    FOREIGN KEY (usuario_id) REFERENCES usuarios(id) ON DELETE CASCADE
+);
+
+
+-----------------------------------------------------------------------------------------
+
+
+TABELA ITENS PEDIDOS /* itens_pedido → onde ficam os livros comprados. */
+
+
+CREATE TABLE pedidos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    usuario_id INT NOT NULL,
+    data DATETIME DEFAULT CURRENT_TIMESTAMP,
+    total DECIMAL(10,2) NOT NULL,
+    FOREIGN KEY (usuario_id) REFERENCES usuarios(id) ON DELETE CASCADE
+);
+
+
+
+
+
+
+
+
+
+SCRIP DOS LIVROS
+
+INSERT INTO livros (titulo, autor, preco, imagem, descricao) VALUES
+('Amante Sombrio', 'Bianca Pohndorf', 39.90, '../assets/img/livro1.jpg', '"Amante Sombrio" é o primeiro livro da série Irmandade da Adaga Negra, escrita por J.R. Ward. A história gira em torno de um mundo sombrio e sedutor, onde vampiros lutam pela sobrevivência em uma sociedade secreta. O protagonista, Wrath, é o último dos vampiros da sua linhagem real e líder da Irmandade, um grupo de guerreiros que protege os vampiros das ameaças externas. No enredo, Wrath se vê diante da responsabilidade de liderar e, ao mesmo tempo, enfrenta dilemas pessoais quando conhece Beth, uma mulher humana que possui uma ligação inesperada com ele. A trama mistura ação, romance e muito suspense, mergulhando o leitor em um universo repleto de mistérios, lealdade e paixão. É um livro envolvente para quem gosta de romances sobrenaturais com toques de drama e ação.'),
+
+('Entendendo Algoritmos', 'Aditya Bhargava', 39.90, '../assets/img/livro2.jpg', 'Um guia ilustrado para programadores e outros curiosos. Um algoritmo nada mais é do que um procedimento passo a passo para a resolução de um problema. Os algoritmos que você mais utilizará como um programador já foram descobertos, testados e provados. Se você quer entendê-los, mas se recusa a estudar páginas e mais páginas de provas, este é o livro certo. Este guia cativante e completamente ilustrado torna simples aprender como utilizar os principais algoritmos nos seus programas. O livro Entendendo Algoritmos apresenta uma abordagem agradável para esse tópico essencial da ciência da computação. Nele, você aprenderá como aplicar algoritmos comuns nos problemas de programação enfrentados diariamente. Você começará com tarefas básicas como a ordenação e a pesquisa. Com a prática, você enfrentará problemas mais complexos, como a compressão de dados e a inteligência artificial. Cada exemplo é apresentado em detalhes e inclui diagramas e códigos completos em Python. Ao final deste livro, você terá dominado algoritmos amplamente aplicáveis e saberá quando e onde utilizá-los. O que este livro inclui: a abordagem de algoritmos de pesquisa, ordenação e algoritmos gráficos; mais de 400 imagens com descrições detalhadas; comparações de desempenho entre algoritmos; exemplos de código em Python.'),
+
+('Dinheiro é Emocional', 'Tiago Brunet', 31.31, '../assets/img/livro3.jpg', 'No livro "Dinheiro é Emocional", Tiago Brunet explora a relação entre dinheiro e emoções, mostrando como sentimentos como medo, ansiedade e ganância podem impactar diretamente as decisões financeiras. Ele argumenta que muitos problemas financeiros não surgem apenas da falta de conhecimento ou oportunidades, mas de crenças limitantes e hábitos emocionais enraizados. A obra apresenta um guia para reprogramar a mente e desenvolver uma relação saudável com o dinheiro, ensinando como evitar armadilhas financeiras e alcançar a verdadeira prosperidade. Tiago Brunet combina princípios de inteligência emocional, espiritualidade e gestão financeira para ajudar o leitor a identificar e superar bloqueios emocionais que impedem o crescimento financeiro. O autor compartilha estratégias para equilibrar a vida financeira sem abrir mão do propósito de vida, ajudando o leitor a construir riqueza de forma sustentável e ética. O livro traz exemplos práticos, exercícios reflexivos e princípios baseados em suas experiências pessoais e profissionais como mentor e palestrante.'),
+
+('Basta Sentir', 'Mariana Rios', 59.90, '../assets/img/livro4.jpg', 'Nesta obra, Mariana Rios compartilha experiências pessoais e o método que desenvolveu desde a infância para alcançar seus objetivos. Ela enfatiza que cada indivíduo possui ferramentas internas capazes de transformar sonhos em realidade, bastando aprender a acessá-las e utilizá-las de forma eficaz. O livro apresenta histórias inspiradoras e práticas que visam auxiliar o leitor a identificar e superar obstáculos internos, promovendo uma jornada de autoconhecimento e realização pessoal.'),
+
+('Como Conversar com Qualquer Pessoa', 'Leil Lowndes', 38.09, '../assets/img/livro5.jpg', 'Leil Lowndes explora como pequenos ajustes na comunicação podem causar um impacto significativo nas interações humanas. As estratégias abordadas incluem métodos para iniciar conversas, manter o interesse do interlocutor e criar conexões genuínas. Além disso, o livro oferece orientações sobre linguagem corporal, tom de voz e escolha de palavras, enfatizando a importância desses elementos para transmitir confiança e empatia. ​Cada uma das 92 técnicas é apresentada de forma clara e objetiva, acompanhada de exemplos práticos que ilustram sua aplicação no cotidiano. O objetivo é capacitar o leitor a se sentir mais seguro ao interagir com os outros, seja em reuniões sociais, no ambiente de trabalho, em eventos ou em negociações com clientes.'),
+
+('Os Segredos da Mente Milionária', 'T. Harv Eker', 44.63, '../assets/img/livro6.jpg', 'Neste livro, T. Harv Eker explora a ideia de que cada pessoa possui um "modelo de dinheiro" internalizado, formado por crenças e experiências adquiridas desde a infância, que influencia diretamente sua relação com a riqueza e o sucesso financeiro. Eker propõe que, para alcançar a prosperidade, é essencial substituir padrões mentais limitantes pelos "Arquivos de Riqueza", que são 17 formas de pensar e agir adotadas por pessoas bem-sucedidas.'),
+
+('O Homem mais Rico da Babilônia', 'George S. Clason', 19.99, '../assets/img/livro7.jpg', '"O Homem Mais Rico da Babilônia" é um clássico atemporal sobre finanças pessoais, escrito por George S. Clason. O livro apresenta ensinamentos financeiros por meio de parábolas ambientadas na antiga Babilônia, uma das civilizações mais ricas da história. Utilizando narrativas acessíveis e didáticas, o autor transmite princípios fundamentais para a construção de riqueza, enfatizando a importância de hábitos financeiros saudáveis e uma mentalidade disciplinada. A história principal gira em torno de Arkad, um escriba que se tornou o homem mais rico da Babilônia. Através de suas experiências e ensinamentos, ele compartilha com amigos e cidadãos os segredos para alcançar a prosperidade. Entre os princípios abordados, destacam-se a importância de poupar uma parte dos ganhos, a necessidade de investir de forma inteligente e a relevância de evitar gastos desnecessários. O livro também ressalta a importância da educação financeira contínua, incentivando os leitores a aprimorarem suas habilidades para aumentar sua capacidade de gerar riqueza.'),
+
+('O Que Aconteceu com Annie', 'C. J. Tudor',  52.72, '../assets/img/livro8.jpg', 'A narrativa acompanha Joe Thorne, que, na adolescência, enfrentou o desaparecimento misterioso de sua irmã mais nova, Annie. Após 25 anos, Joe recebe um e-mail anônimo com a mensagem: "Eu sei o que aconteceu com sua irmã. Está acontecendo de novo." Atualmente endividado e distante de sua cidade natal, Joe vê nesse contato uma oportunidade de confrontar os traumas do passado e resolver o enigma que o assombra há décadas. Seu retorno a Arnhill o obriga a enfrentar antigos conhecidos e a reviver memórias que preferia manter enterradas. O livro mergulha em temas como culpa, redenção e os segredos sombrios que pequenas comunidades podem esconder. A atmosfera é carregada de suspense e elementos sobrenaturais, mantendo o leitor envolvido até o desfecho surpreendente.'),
+
+('Verity', 'Colleen Hoover', 44.90, '../assets/img/livro9.jpg', 'A trama segue Lowen Ashleigh, uma escritora em dificuldades financeiras que recebe a proposta de concluir a série de livros de Verity Crawford, uma autora renomada que ficou incapacitada após um misterioso acidente. Ao se mudar para a casa dos Crawford para revisar os manuscritos inacabados, Lowen descobre uma autobiografia não publicada de Verity, repleta de confissões perturbadoras que revelam segredos sombrios sobre a vida da autora e sua família. Conforme Lowen mergulha nessas revelações, ela se vê envolvida em uma teia de mentiras e mistérios, questionando a verdadeira natureza de Verity e os eventos que a levaram à sua condição atual. O livro explora temas como manipulação, obsessão e os limites entre ficção e realidade, mantendo o leitor em suspense até o desfecho surpreendente.'),
+
+('A Cirurgiã', 'Leslie Wolfe', 44.90, '../assets/img/livro10.jpg', 'A trama gira em torno da Dra. Anne Wiley, uma cirurgiã de renome que leva uma vida aparentemente perfeita: uma carreira de sucesso, uma casa confortável e um marido dedicado. No entanto, sua vida dá uma guinada inesperada quando ela perde um paciente durante uma cirurgia — um paciente que ela odiava. Esse evento levanta suspeitas e coloca Anne sob investigação da promotora criminal Paula Fuselier. A situação se complica ainda mais quando se descobre que tanto Anne quanto Paula têm uma conexão pessoal: ambas mantêm um relacionamento com Derreck, marido de Anne e candidato a prefeito. Esse triângulo amoroso adiciona camadas de tensão à narrativa, explorando temas como confiança, traição e os limites éticos da profissão médica. O livro mantém o leitor em suspense, questionando a inocência ou culpa de Anne até o desfecho surpreendente.​'),
+
+('Harry Potter e a Pedra Filosofal', 'J.K. Rowling', 35.65, '../assets/img/livro11.jpg', 'A história apresenta Harry Potter, um órfão de 11 anos que vive com seus tios Dursley, que o tratam com indiferença e crueldade. Em seu aniversário, Harry descobre que é, na verdade, um bruxo e que foi aceito na Escola de Magia e Bruxaria de Hogwarts. Essa revelação transforma completamente sua vida, levando-o a um mundo mágico repleto de descobertas, amizades e desafios.​Em Hogwarts, Harry faz amizade com Ron Weasley e Hermione Granger, que se tornam seus companheiros inseparáveis. Juntos, eles exploram os mistérios do castelo e enfrentam diversos desafios. O enredo central do livro gira em torno da Pedra Filosofal, um objeto lendário capaz de conceder a imortalidade e transformar qualquer metal em ouro puro. Harry e seus amigos descobrem que a pedra está escondida em Hogwarts e que forças sombrias estão tentando roubá-la. Determinado a impedir que isso aconteça, o trio embarca em uma perigosa jornada para proteger a pedra e enfrentar o temido bruxo das trevas, Lord Voldemort, responsável pela morte dos pais de Harry.​Ao longo da narrativa, temas como amizade, coragem, lealdade e a luta entre o bem e o mal são explorados de maneira envolvente. A escrita de Rowling é rica em detalhes, criando um universo mágico que cativa leitores de todas as idades. "Harry Potter e a Pedra Filosofal" estabelece as bases para os eventos dos livros subsequentes, introduzindo personagens icônicos e elementos fundamentais da série.'),
+
+('Eu, Minha Arma e o Alvo', 'Nathalia Alvitos e André Moragas', 44.90, '../assets/img/livro12.jpg', 'A narrativa acompanha a trajetória de Marco Antonio, um menino carioca de origem humilde que, através de determinação e habilidades excepcionais, superou diversos obstáculos para se tornar uma lenda internacional como Caçador de Operações Especiais. Desde os primeiros treinamentos no Exército Brasileiro, Marco se destacou por sua precisão e ética inabalável. O livro explora não apenas suas conquistas profissionais, mas também os valores e princípios que o guiaram ao longo de sua carreira. Temas como resiliência, disciplina e integridade são abordados, oferecendo ao leitor uma visão profunda sobre o que é necessário para alcançar a excelência em operações especiais. A obra combina elementos de romance de formação com uma narrativa biográfica, proporcionando uma leitura envolvente e inspiradora.'),
+
+('Sapiens Uma Breve História da Humanidade', 'Yuval Noah Harari', 56.77, '../assets/img/livro13.jpg', 'Harari explora os principais marcos da história da humanidade, dividindo-os em três grandes revoluções: Revolução Cognitiva, Revolução Agrícola e Revolução Científica.
+
+Ao longo do livro, o autor aborda temas como a criação de sistemas econômicos, políticos e sociais, a disseminação de religiões e ideologias, e o impacto das revoluções tecnológicas na vida humana. Harari argumenta que a capacidade dos seres humanos de acreditar em ficções coletivas, como dinheiro, nações e direitos humanos, foi fundamental para a cooperação em larga escala e o domínio do planeta.​
+
+A narrativa de "Sapiens" é envolvente e provocativa, desafiando o leitor a refletir sobre a natureza da humanidade, nossas conquistas e os possíveis caminhos futuros. A obra combina insights de diversas disciplinas, incluindo história, antropologia, biologia e economia, oferecendo uma perspectiva interdisciplinar sobre a jornada humana.'),
+
+('Marketing 4.0 Do Tradicional ao Digital', 'Philip Kotler, Hermawan Kartajaya e Iwan Setiawan', 26.60, '../assets/img/livro14.jpg', '"Marketing 4.0: Do Tradicional ao Digital" é uma obra que explora a transição do marketing convencional para o ambiente digital, refletindo as mudanças significativas no comportamento do consumidor e nas estratégias empresariais. Escrito por Philip Kotler, considerado o "pai do marketing moderno", em colaboração com Hermawan Kartajaya e Iwan Setiawan, o livro oferece uma análise profunda sobre como as empresas podem se adaptar e prosperar na era digital.
+
+Ao longo do livro, os autores destacam a importância de compreender a jornada do consumidor na era digital, que se tornou mais dinâmica e não linear. Eles introduzem o conceito de "5As" (Aware, Appeal, Ask, Act e Advocate) para descrever as etapas pelas quais os consumidores passam, enfatizando a necessidade de engajamento e construção de relacionamentos duradouros.
+
+"Marketing 4.0" também aborda a integração entre o marketing tradicional e digital, ressaltando que, embora o digital tenha ganhado destaque, as estratégias offline ainda desempenham um papel crucial. Os autores argumentam que a combinação eficaz de ambos os mundos é essencial para alcançar e envolver os consumidores de maneira holística.'),
+
+('Programador Autodidata Guia Definitivo para Programar Profissionalmente', 'Cory Althoff', 74.00, '../assets/img/livro15.jpg', '"Programador Autodidata: Guia Definitivo para Programar Profissionalmente" é um livro escrito por Cory Althoff. Ele serve como um guia para quem deseja aprender a programar de forma independente, sem depender de cursos formais. O livro foi estruturado de forma a ensinar desde os conceitos básicos de programação até as habilidades necessárias para se tornar um programador profissional.
+
+A obra está dividida em várias seções, começando com a introdução à linguagem Python, que é uma das linguagens mais populares para iniciantes. Ela ensina os fundamentos da programação de forma acessível e com exemplos práticos. Em seguida, o livro aborda o conceito de programação orientada a objetos, essencial para a construção de programas mais organizados e eficientes.
+
+Além disso, o livro explora ferramentas essenciais para programadores, como o Git, Bash e expressões regulares, que são importantes para o desenvolvimento moderno. Althoff também dedica um capítulo para que o leitor aplique o que aprendeu, criando um web scraper, por exemplo, o que ajuda a consolidar o conhecimento adquirido.');
+

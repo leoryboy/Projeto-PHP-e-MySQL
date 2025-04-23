@@ -61,6 +61,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link href="css/styles.css" rel="stylesheet">
 </head>
 <body>
+    <!-- Fab -->
+    <div class="fixed-bottom text-end p-2">
+            <a class="social-icon icon-fab" href="https://api.whatsapp.com/send?phone=5511952836058" target="_blank"><i class="fab fa-whatsapp"></i></a>
+         </div>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">

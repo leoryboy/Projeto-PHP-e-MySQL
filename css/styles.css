@@ -10905,3 +10905,10 @@ header.masthead .post-heading .meta a {
   top: 20px; /* Ajusta a posição para aparecer mais acima */
 }
 
+.icon-fab{
+  font-size: 300%;
+  color: green;
+}
+.icon-fab:hover{
+  color: #00802B;
+}
